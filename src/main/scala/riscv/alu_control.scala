@@ -62,7 +62,14 @@ class alu_control extends Module {
                 io.out := 0.U
             }
 
-
+    // val MUL   = 29.U
+    // val MULH  = 30.U
+    // val MULHSU= 31.U
+    // val MULHU = 32.U
+    // val DIV   = 33.U
+    // val DIVU  = 34.U
+    // val REM   = 35.U
+    // val REMU  = 36.U
 
         }.elsewhen (io.fn7 === 1.U){
             when (io.fn3 === 0.U){
@@ -73,6 +80,14 @@ class alu_control extends Module {
                 io.out := 31.U
             }.elsewhen(io.fn3 === 3.U){
                 io.out :=  32.U 
+            }.elsewhen(io.fn3 === 4.U){
+                io.out := 33.U
+            }.elsewhen(io.fn3 === 5.U){
+                io.out := 34.U
+            }.elsewhen(io.fn3 === 6.U){
+                io.out := 35.U
+            }.elsewhen(io.fn3 === 7.U){
+                io.out := 36.U
             }.otherwise{
                 io.out := 0.U
             }

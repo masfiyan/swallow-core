@@ -81,6 +81,12 @@ val product = WireInit(0.S(64.W))
              Mux(io.alu === alu_op.MULH, (product(63, 32)).asSInt,
              Mux(io.alu === alu_op.MULHSU, (mulhsu(63, 32)).asSInt,
              Mux(io.alu === alu_op.MULHU, (mulhu(63, 32)).asSInt,
+             Mux(io.alu === alu_op.DIV, (io.a / io.b),
+             Mux(io.alu === alu_op.DIV, (io.a.asUInt / io.b.asUInt).asSInt,
+             Mux(io.alu === alu_op.REM, (io.a % io.b),
+             Mux(io.alu === alu_op.REMU, (io.a.asUInt % io.b.asUInt).asSInt,
+
+             
              0.S
-           )))))))))))))))
+           )))))))))))))))))))
 }
